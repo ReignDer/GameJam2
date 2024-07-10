@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log(this.transform.position.x + ", " + this.transform.position.y + ", " + this.transform.position.z);
 
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatIsGround);
 

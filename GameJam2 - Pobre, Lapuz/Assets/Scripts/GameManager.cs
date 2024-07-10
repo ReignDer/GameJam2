@@ -28,18 +28,29 @@ public class GameManager : MonoBehaviour
 
     private void OnLoop(Parameters Portal)
     {
+        
         if (OriginPoint.name == Portal.GetStringExtra("Portal", "Cube"))
         {
             Debug.Log("ToEntrance");
-            Vector3 point = new Vector3(EntranceTarget.position.x, 1, EntranceTarget.position.z);
-            Player.transform.position = point;
+            Debug.Log(Player.transform.position.x + "," + Player.transform.position.y + "," + Player.transform.position.z);
+            Vector3 offsetPosition = Player.transform.position - OriginPoint.position;
+            //Vector3 point = new Vector3(Entrance.position.x + 6.5f + offsetPosition.x, 1, Entrance.position.z + offsetPosition.z);
+            //Vector3 point = new Vector3(EntranceTarget.position.x + offsetPosition.x - 0.5f, 1, EntranceTarget.position.z + offsetPosition.z );
+            Vector3 newPos = EntranceTarget.position + offsetPosition;
+            newPos.y = 1f;
+            Player.transform.position = newPos;
+            Physics.SyncTransforms();
+            Debug.Log(Player.transform.position.x + "," + Player.transform.position.y + "," + Player.transform.position.z);
 
         }
         else if(Entrance.name == Portal.GetStringExtra("Portal", "Cube (1)"))
         {
             Debug.Log("ToOrigin");
-            Vector3 point = new Vector3(OriginTarget.position.x, 1, OriginTarget.position.z);
+             Debug.Log(Player.transform.position.x + "," + Player.transform.position.y + "," + Player.transform.position.z);
+            Vector3 offsetPosition = Player.transform.position - Entrance.position;
+            Vector3 point = new Vector3(OriginPoint.position.x - 5.9f - offsetPosition.x, 1, OriginPoint.position.z + offsetPosition.z);
             Player.transform.position = point;
+            Physics.SyncTransforms();
 
         }
     }
