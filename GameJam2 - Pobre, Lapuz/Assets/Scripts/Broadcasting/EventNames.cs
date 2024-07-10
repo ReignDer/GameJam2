@@ -50,6 +50,11 @@ public class EventNames {
 		public const string ON_FIRST_SCAN = "FIRST_TARGET_SCAN";
 		public const string ON_FINAL_SCAN = "ON_FINAL_SCAN";
 	}
+
+	public class Loop
+	{
+		public const string BACK_TO_ORIGIN = "BACK_TO_ORIGIN";
+	}
 }
 
 

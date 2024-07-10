@@ -21,4 +21,5 @@ public class SceneNames {
     public const string DOTA_2_UI_SAMPLE_SCENE = "Dota2UISample";
     public const string PATHFINDING_SCENE = "PathfindingScene";
     public const string AUDIO_SCENE = "AudioScene";
+    public const string SCENE = "Untitled";
 }
