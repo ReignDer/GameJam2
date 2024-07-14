@@ -20,8 +20,18 @@ public class CameraRayCast : MonoBehaviour
 
                 if (objectHit.CompareTag(targetTag)) // Check if the object has the specific tag
                 {
-                    // Do something with the object that was hit by the raycast.
-                    Debug.Log("Anomaly found on tagged object");
+                    // Call the ReplaceCurrentGameObject method on the hit object if it has the ReplaceGameObject component
+                    ReplaceGameObject replacer = objectHit.GetComponent<ReplaceGameObject>();
+
+                    if (replacer != null)
+                    {
+                        replacer.ReplaceCurrentGameObject();
+                        Debug.Log("Replacing");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("ReplaceGameObject component not found on the hit object.");
+                    }
                 }
             }
         }
