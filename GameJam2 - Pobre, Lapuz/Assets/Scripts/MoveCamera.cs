@@ -11,4 +11,9 @@ public class MoveCamera : MonoBehaviour
     {
         this.transform.position = cameraPosition.position;
     }
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 }
