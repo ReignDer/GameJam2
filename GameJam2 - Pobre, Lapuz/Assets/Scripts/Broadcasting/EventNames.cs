@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
+using NUnit.Framework.Constraints;
 
 /*
  * Holder for event names
  * Created By: NeilDG
- */ 
+ */
 public class EventNames {
 	public const string ON_UPDATE_SCORE = "ON_UPDATE_SCORE";
 	public const string ON_CORRECT_MATCH = "ON_CORRECT_MATCH";
@@ -54,6 +55,7 @@ public class EventNames {
 	public class Loop
 	{
 		public const string BACK_TO_ORIGIN = "BACK_TO_ORIGIN";
+		public const string TRACK_TRIGGER = "TRACK_TRIGGER"; 
 	}
 }
 
