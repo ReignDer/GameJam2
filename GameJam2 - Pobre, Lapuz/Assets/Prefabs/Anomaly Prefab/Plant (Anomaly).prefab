@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7593891368695931020}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,9 +1107,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2559914507306693876}
+  - component: {fileID: 4789911871918392110}
   m_Layer: 0
   m_Name: Plant (Anomaly)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1131,6 +1132,19 @@ Transform:
   - {fileID: 8898638926802030039}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4789911871918392110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4798475971562075069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066e4a72f4cf142489fdaa22ef989da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomalyID: 4
 --- !u!1 &5335082416681598695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,7 +1156,7 @@ GameObject:
   - component: {fileID: 8898638926802030039}
   m_Layer: 0
   m_Name: Dead tree 002
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1176,7 +1190,7 @@ GameObject:
   - component: {fileID: 6434524826414641256}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

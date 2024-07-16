@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     private int nextStage;
     private int trackLoop;
     private int trackIndex;
+    private int stageIndex;
     string triggerName = null;
     private void Awake()
     {
@@ -33,8 +34,10 @@ public class GameManager : MonoBehaviour
     {
         trackLoop = 0;
         currentStage = level[0].levelID;
+        stageIndex = currentStage - 1;
         nextStage = currentStage + 1;
         EventBroadcaster.Instance.AddObserver(EventNames.Loop.BACK_TO_ORIGIN, OnLoop);
+        EventBroadcaster.Instance.AddObserver(EventNames.Loop.ON_HIT_ANOMALY, RemoveAnomaly);
         //EventBroadcaster.Instance.AddObserver(EventNames.Loop.TRACK_TRIGGER, ProgressToNextLevel);
 
 
@@ -47,48 +50,92 @@ public class GameManager : MonoBehaviour
         switch (currentStage) {
             case 1:
                 trackLoop++;
-                switch(trackLoop)
+                switch (trackLoop)
                 {
                     case 3:
                         trackLoop = 0;
                         nextStage = currentStage + 1;
-                        this.Teleport(nextStage,index);
-                    
+                        this.Teleport(nextStage, index);
+
                         this.currentStage = nextStage;
                         break;
                     default:
-                        this.Teleport(index); 
+                        this.Teleport(index);
                         break;
 
                 }
                 break;
             case 2: Debug.Log("Stage2");
-                nextStage = currentStage + 1;
-                this.Teleport(nextStage + 1, index);
+                this.stageIndex = currentStage - 1;
+                switch (level[stageIndex].anomalies.Count)
+                {
+                    case 0:
+                        nextStage = currentStage + 1;
+                        this.Teleport(nextStage + 1, index);
 
-                this.currentStage = nextStage;
+                        this.currentStage = nextStage;
+                    break;
+
+                    default:
+                        this.Teleport(index);
+                        break;
+                }
                 break;
 
             case 3:
-                nextStage = currentStage + 1;
-                this.Teleport(nextStage + 2, index);
+                Debug.Log("Stage3");
+                this.stageIndex = currentStage - 1;
+                switch (level[stageIndex].anomalies.Count)
+                {
+                    case 0:
+                        nextStage = currentStage + 1;
+                        this.Teleport(nextStage + 1, index);
 
-                this.currentStage = nextStage;
+                        this.currentStage = nextStage;
+                        break;
+
+                    default:
+                        this.Teleport(index);
+                        break;
+                }
                 break;
 
             case 4:
-                nextStage = currentStage + 1;
-                this.Teleport(nextStage + 3, index);
+                Debug.Log("Stage4");
+                this.stageIndex = currentStage - 1;
+                switch (level[stageIndex].anomalies.Count)
+                {
+                    case 0:
+                        nextStage = currentStage + 1;
+                        this.Teleport(nextStage + 1, index);
 
-                this.currentStage = nextStage;
+                        this.currentStage = nextStage;
+                        break;
+
+                    default:
+                        this.Teleport(index);
+                        break;
+                }
                 break;
             case 5:
-                nextStage = currentStage + 1;
-                this.Teleport(nextStage + 4, index);
+                Debug.Log("Stage5");
+                this.stageIndex = currentStage - 1;
+                switch (level[stageIndex].anomalies.Count)
+                {
+                    case 0:
+                        nextStage = currentStage + 1;
+                        this.Teleport(nextStage + 1, index);
 
-                this.currentStage = nextStage;
+                        this.currentStage = nextStage;
+                        break;
+
+                    default:
+                        this.Teleport(index);
+                        break;
+                }
                 break;
             case 6:
+                Debug.Log("Stage6");
                 this.Teleport(index);
                 break;
 
@@ -180,10 +227,27 @@ public class GameManager : MonoBehaviour
         }
 
     }
-
+    private void RemoveAnomaly(Parameters parameter)
+    {
+        int stageIndex= currentStage -1;
+        
+        if (level[stageIndex].anomalies.Count != 0)
+        {
+            for (int i = 0; i < level[stageIndex].anomalies.Count; i++)
+            {
+                if (level[stageIndex].anomalies[i].anomalyID == parameter.GetIntExtra("Anomaly", level[stageIndex].anomalies[i].anomalyID))
+                {
+                    level[stageIndex].anomalies.RemoveAt(i);
+                    Debug.Log("AnomalyRemoved");
+                    break;
+                }
+            }
+        }
+    }
     private void OnDisable()
     {
         EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.BACK_TO_ORIGIN);
+        EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.ON_HIT_ANOMALY);
         //EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.TRACK_TRIGGER);
 
     }

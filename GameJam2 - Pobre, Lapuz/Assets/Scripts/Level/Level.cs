@@ -5,9 +5,10 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public int levelID;
-
-    public Level(int levelID)
+    public List<Anomaly> anomalies;
+    public Level(int levelID, Anomaly anomaly)
     {
         this.levelID = levelID;
+        anomalies.Add(anomaly);
     }
 }

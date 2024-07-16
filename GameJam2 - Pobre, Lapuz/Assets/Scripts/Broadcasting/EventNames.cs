@@ -55,8 +55,10 @@ public class EventNames {
 	public class Loop
 	{
 		public const string BACK_TO_ORIGIN = "BACK_TO_ORIGIN";
-		public const string TRACK_TRIGGER = "TRACK_TRIGGER"; 
-	}
+		public const string TRACK_TRIGGER = "TRACK_TRIGGER";
+		public const string ON_HIT_ANOMALY = "ON_HIT_ANOMALY";
+
+    }
 }
 
 
