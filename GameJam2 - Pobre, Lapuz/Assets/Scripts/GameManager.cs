@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private int trackLoop;
     private int trackIndex;
     private int stageIndex;
-    string triggerName = null;
+    private string triggerName = null;
     private void Awake()
     {
         if (Instance == null)
@@ -136,7 +136,17 @@ public class GameManager : MonoBehaviour
                 break;
             case 6:
                 Debug.Log("Stage6");
-                this.Teleport(index);
+                this.stageIndex = currentStage - 1;
+                switch (level[stageIndex].anomalies.Count)
+                {
+                    case 0:
+                       
+                        break;
+
+                    default:
+                        this.Teleport(index);
+                        break;
+                }
                 break;
 
 
