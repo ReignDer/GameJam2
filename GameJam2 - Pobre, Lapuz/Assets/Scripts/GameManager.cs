@@ -35,35 +35,62 @@ public class GameManager : MonoBehaviour
         currentStage = level[0].levelID;
         nextStage = currentStage + 1;
         EventBroadcaster.Instance.AddObserver(EventNames.Loop.BACK_TO_ORIGIN, OnLoop);
-        EventBroadcaster.Instance.AddObserver(EventNames.Loop.TRACK_TRIGGER, ProgressToNextLevel);
+        //EventBroadcaster.Instance.AddObserver(EventNames.Loop.TRACK_TRIGGER, ProgressToNextLevel);
 
 
     }
 
 
-    private void ProgressToNextLevel()
+    private void ProgressToNextLevel(int currentStage, int index)
     {
-        
+        Debug.Log(this.currentStage);
         switch (currentStage) {
             case 1:
-                if (trackLoop == 3)
+                trackLoop++;
+                switch(trackLoop)
                 {
-                    trackLoop = 0;
-                    nextStage = currentStage + 1;
-             
+                    case 3:
+                        trackLoop = 0;
+                        nextStage = currentStage + 1;
+                        this.Teleport(nextStage,index);
                     
-                    currentStage = nextStage;
+                        this.currentStage = nextStage;
+                        break;
+                    default:
+                        this.Teleport(index); 
+                        break;
+
                 }
                 break;
-            case 2: Debug.Log("Stage2"); break;
+            case 2: Debug.Log("Stage2");
+                nextStage = currentStage + 1;
+                this.Teleport(nextStage + 1, index);
 
-            case 3: break;
+                this.currentStage = nextStage;
+                break;
+
+            case 3:
+                nextStage = currentStage + 1;
+                this.Teleport(nextStage + 2, index);
+
+                this.currentStage = nextStage;
+                break;
+
             case 4:
-            break;
+                nextStage = currentStage + 1;
+                this.Teleport(nextStage + 3, index);
+
+                this.currentStage = nextStage;
+                break;
             case 5:
-            break;
+                nextStage = currentStage + 1;
+                this.Teleport(nextStage + 4, index);
+
+                this.currentStage = nextStage;
+                break;
             case 6:
-            break;
+                this.Teleport(index);
+                break;
 
 
         }
@@ -72,7 +99,6 @@ public class GameManager : MonoBehaviour
     private void Teleport(int index)
     {
         Vector3 offsetPosition = Player.transform.position - TriggerLoop[index].position;
-        //Debug.Log("Local: " + offsetPosition);
         Vector3 newPos = TeleportTo[index].position + offsetPosition;
         newPos.y = 1f;
         Player.transform.position = newPos;
@@ -80,10 +106,7 @@ public class GameManager : MonoBehaviour
     }
     private void Teleport(int teleportTo, int lastTrigger)
     {
-        Debug.Log(TriggerLoop[lastTrigger].name);
-        Debug.Log(TeleportTo[teleportTo].name);
         Vector3 offsetPosition = Player.transform.position - TriggerLoop[lastTrigger].position;
-        //Debug.Log("Level: " + offsetPosition);
         Vector3 newPos = TeleportTo[teleportTo].position + offsetPosition;
         newPos.y = 1f;
         Player.transform.position = newPos;
@@ -112,41 +135,29 @@ public class GameManager : MonoBehaviour
 
         int index = this.TriggerPortal(Portal);
         this.trackIndex = index;
-        Debug.Log(trackIndex);
+
 
         switch (triggerName)
         {
             case "LVL-1__Trigger-1":
-                //Debug.Log("Trigger");
-                trackLoop++;
-                switch (trackLoop)
-                {
-                    case 3:
-                        this.Teleport(2, index);
-                        break;
-                    default:
-                        this.Teleport(index);
-                        break;
-                }
-                
+                this.ProgressToNextLevel(currentStage,index);
                 break;
             case "LVL-2__Trigger-1":
-                this.Teleport(index);
+                this.ProgressToNextLevel(currentStage, index);
                 break;
             case "LVL-3__Trigger-1":
-                this.Teleport(index);
+                this.ProgressToNextLevel(currentStage, index);
                 break;
             case "LVL-4__Trigger-1":
-                this.Teleport(index);
+                this.ProgressToNextLevel(currentStage, index);
                 break;
             case "LVL-5__Trigger-1":
-                this.Teleport(index);
+                this.ProgressToNextLevel(currentStage, index);
                 break;
             case "LVL-6__Trigger-1":
-                this.Teleport(index);
+                this.ProgressToNextLevel(currentStage, index);
                 break;
             case "LVL-1__Trigger-2":
-                //Debug.Log("Trigger2");
 
                 this.Teleport(index);
                 break;
@@ -173,12 +184,11 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.BACK_TO_ORIGIN);
-        EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.TRACK_TRIGGER);
+        //EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.TRACK_TRIGGER);
 
     }
     // Update is called once per frame
     void Update()
     {
-        this.ProgressToNextLevel();
     }
 }
