@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
                 break;
             case 2: Debug.Log("Stage2");
                 this.stageIndex = currentStage - 1;
+                Debug.Log(level[stageIndex].anomalies.Count);
                 switch (level[stageIndex].anomalies.Count)
                 {
                     case 0:
@@ -84,12 +85,15 @@ public class GameManager : MonoBehaviour
 
             case 3:
                 Debug.Log("Stage3");
+                
                 this.stageIndex = currentStage - 1;
+
                 switch (level[stageIndex].anomalies.Count)
                 {
                     case 0:
                         nextStage = currentStage + 1;
-                        this.Teleport(nextStage + 1, index);
+                        Debug.Log(nextStage + 1);
+                        this.Teleport(nextStage + 2, index);
 
                         this.currentStage = nextStage;
                         break;
@@ -107,7 +111,7 @@ public class GameManager : MonoBehaviour
                 {
                     case 0:
                         nextStage = currentStage + 1;
-                        this.Teleport(nextStage + 1, index);
+                        this.Teleport(nextStage + 3, index);
 
                         this.currentStage = nextStage;
                         break;
@@ -124,7 +128,7 @@ public class GameManager : MonoBehaviour
                 {
                     case 0:
                         nextStage = currentStage + 1;
-                        this.Teleport(nextStage + 1, index);
+                        this.Teleport(nextStage + 4, index);
 
                         this.currentStage = nextStage;
                         break;

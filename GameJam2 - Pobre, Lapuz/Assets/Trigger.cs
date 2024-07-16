@@ -11,7 +11,6 @@ public class Trigger : MonoBehaviour
         parameters.PutExtra("PortalID", this.gameObject.GetComponentInParent<Level>().levelID);
         if(other.tag == "Player")
         {
-            Debug.Log(other.transform.position);
             EventBroadcaster.Instance.PostEvent(EventNames.Loop.BACK_TO_ORIGIN, parameters);
             EventBroadcaster.Instance.PostEvent(EventNames.Loop.TRACK_TRIGGER, parameters);
             
