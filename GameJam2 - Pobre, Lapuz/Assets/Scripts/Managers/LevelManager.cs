@@ -5,9 +5,9 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static LevelManager Instance;
 
     public List<Transform> TriggerLoop;
     public List<Transform> TeleportTo;
@@ -28,22 +28,21 @@ public class GameManager : MonoBehaviour
             Instance = this;
         else
             Destroy(this.gameObject);
+
+    
     }
     // Start is called before the first frame update
+
     void Start()
     {
         trackLoop = 0;
         currentStage = level[0].levelID;
         stageIndex = currentStage - 1;
         nextStage = currentStage + 1;
+
         EventBroadcaster.Instance.AddObserver(EventNames.Loop.BACK_TO_ORIGIN, OnLoop);
         EventBroadcaster.Instance.AddObserver(EventNames.Loop.ON_HIT_ANOMALY, RemoveAnomaly);
-        //EventBroadcaster.Instance.AddObserver(EventNames.Loop.TRACK_TRIGGER, ProgressToNextLevel);
-
-
     }
-
-
     private void ProgressToNextLevel(int currentStage, int index)
     {
         Debug.Log(this.currentStage);
@@ -260,6 +259,7 @@ public class GameManager : MonoBehaviour
     }
     private void OnDisable()
     {
+        EventBroadcaster.Instance.RemoveObserver(EventNames.State.STATE);
         EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.BACK_TO_ORIGIN);
         EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.ON_HIT_ANOMALY);
         //EventBroadcaster.Instance.RemoveObserver(EventNames.Loop.TRACK_TRIGGER);
@@ -268,5 +268,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 }

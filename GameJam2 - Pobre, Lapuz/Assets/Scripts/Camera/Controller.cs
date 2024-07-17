@@ -14,27 +14,56 @@ public class Controller : MonoBehaviour
 
     private float xRotation;
     private float yRotation;
+
+    private bool state;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        EventBroadcaster.Instance.AddObserver(EventNames.State.STATE, GameStateChange);
+    }
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
+    private void GameStateChange(Parameters state)
+    {
+        switch (state.GetStateExtra(EventNames.State.STATE, GameState.PLAY))
+        {
+            case GameState.PLAY:
+                this.state = true;
+                break;
+            case GameState.PAUSE:
+                this.state = false;
+                break;
+        }
+    }
+
     // Update is called once per frame
     private void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * senX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senY;
 
-        yRotation += mouseX;
-        xRotation -= mouseY;
+        if (this.state)
+        {
+            float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * senX;
+            float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senY;
 
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation,0);
+            yRotation += mouseX;
+            xRotation -= mouseY;
 
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
+            transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+        }
+        
 
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.Instance.RemoveObserver(EventNames.State.STATE);
 
     }
 }

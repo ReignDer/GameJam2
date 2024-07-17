@@ -59,6 +59,18 @@ public class EventNames {
 		public const string ON_HIT_ANOMALY = "ON_HIT_ANOMALY";
 
     }
+
+	public class State
+	{
+		public const string PAUSE = "PAUSE";
+        public const string PLAY = "PLAY";
+        public const string STATE = "STATE";
+	}
+
+	public class UI_Events
+	{
+		public const string UI_STATE = "UI_STATE";
+	}
 }
 
 

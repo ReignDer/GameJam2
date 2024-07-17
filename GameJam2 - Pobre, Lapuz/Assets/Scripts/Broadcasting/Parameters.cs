@@ -19,9 +19,10 @@ public class Parameters {
 	private Dictionary<string, short> shortData;
 	private Dictionary<string, long> longData;
 	private Dictionary<string, string> stringData;
+    private Dictionary<string, GameState> stateData;
 
-	//reference type parcelable
-	private Dictionary<string, ArrayList> arrayListData;
+    //reference type parcelable
+    private Dictionary<string, ArrayList> arrayListData;
 	private Dictionary<string, object> objectListData;
 
 
@@ -34,6 +35,7 @@ public class Parameters {
 		this.shortData = new Dictionary<string, short>();
 		this.longData = new Dictionary<string, long>();
 		this.stringData = new Dictionary<string, string>();
+		this.stateData = new Dictionary<string, GameState>();
 		this.arrayListData = new Dictionary<string, ArrayList>();
 		this.objectListData = new Dictionary<string, object>();
 	}
@@ -70,7 +72,12 @@ public class Parameters {
 		this.stringData.Add(paramName, value);
 	}
 
-	public void PutExtra(string paramName, ArrayList arrayList) {
+    public void PutExtra(string paramName, GameState value)
+    {
+        this.stateData.Add(paramName, value);
+    }
+
+    public void PutExtra(string paramName, ArrayList arrayList) {
 		this.arrayListData.Add(paramName, arrayList);
 	}
 
@@ -156,7 +163,19 @@ public class Parameters {
 		}
 	}
 
-	public ArrayList GetArrayListExtra(string paramName) {
+    public GameState GetStateExtra(string paramName, GameState defaultValue)
+    {
+        if (this.stateData.ContainsKey(paramName))
+        {
+            return this.stateData[paramName];
+        }
+        else
+        {
+            return defaultValue;
+        }
+    }
+
+    public ArrayList GetArrayListExtra(string paramName) {
 		if(this.arrayListData.ContainsKey(paramName)) {
 			return this.arrayListData[paramName];
 		}

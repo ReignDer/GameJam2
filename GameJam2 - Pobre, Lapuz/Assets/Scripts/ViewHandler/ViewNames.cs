@@ -14,6 +14,7 @@ public class ViewNames {
     public const string BASIC_HUD_SCREEN = "BasicHudScreen";
     public const string DOTA_UI_SCREEN = "DotaUIScreen";
     public const string SKILL_UI_SCREEN = "SkillUIScreen";
+	public const string PAUSE_SCREEN = "PauseScreen";
 
 
     public class DialogNames {

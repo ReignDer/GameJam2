@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.ProBuilder.MeshOperations;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float speed;
     private float horizontal;
     private float vertical;
+    private bool escapeKey = false;
     Vector3 movementDir = Vector3.zero;
     [SerializeField]
     private Transform orientation;
@@ -20,39 +22,66 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float groundDrag;
     private bool grounded;
+
+    private bool state;
     // Start is called before the first frame update
+    private void Awake()
+    {
+
+        EventBroadcaster.Instance.AddObserver(EventNames.State.STATE, GameStateChange);
+    }
     private void Start()
     {
+
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+    }
+
+    private void GameStateChange(Parameters state)
+    {
+        Debug.Log("Fire");
+        switch (state.GetStateExtra(EventNames.State.STATE, GameState.PLAY)) {
+            case GameState.PLAY:
+                this.state = true;
+                break;
+            case GameState.PAUSE:
+                this.state = false;
+                break;
+        }
+        Debug.Log(this.state);
+
     }
 
     // Update is called once per frame
     private void Update()
     {
-
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatIsGround);
-
-        this.SpeedControl();
-        this.ProcessInput();
-
-        if (grounded)
+        if (this.state)
         {
-            rb.drag = groundDrag;
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 2f, whatIsGround);
+
+            this.SpeedControl();
+            this.ProcessInput();
+
+            if (grounded)
+            {
+                rb.drag = groundDrag;
+            }
+            else
+                rb.drag = 0;
         }
-        else
-            rb.drag = 0;
     }
 
     private void FixedUpdate()
     {
-        this.movePlayer();
+        if(this.state)
+            this.movePlayer();
     }
 
     private void ProcessInput()
     {
         this.horizontal = Input.GetAxisRaw("Horizontal");
         this.vertical = Input.GetAxisRaw("Vertical");
+
     }
 
     private void movePlayer()
@@ -70,5 +99,11 @@ public class PlayerMovement : MonoBehaviour
             Vector3 limitedVelocity = flatVelocity.normalized * speed;
             rb.velocity = new Vector3(limitedVelocity.x,rb.velocity.y, limitedVelocity.z);  
         }
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.Instance.RemoveObserver(EventNames.State.STATE);
+
     }
 }
