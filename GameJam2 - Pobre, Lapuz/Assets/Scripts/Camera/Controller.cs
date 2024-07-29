@@ -11,6 +11,7 @@ public class Controller : MonoBehaviour
 
     [SerializeField]
     private Transform orientation;
+    private Light light;
 
     private float xRotation;
     private float yRotation;
@@ -26,6 +27,7 @@ public class Controller : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        light = GetComponent<Light>();
     }
 
     private void GameStateChange(Parameters state)
@@ -47,6 +49,11 @@ public class Controller : MonoBehaviour
 
         if (this.state)
         {
+
+            if (Input.GetKeyDown(KeyCode.Mouse1))
+            {
+                light.enabled = !light.enabled;
+            }
             float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * senX;
             float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * senY;
 
