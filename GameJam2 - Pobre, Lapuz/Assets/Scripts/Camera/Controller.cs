@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
         if (this.state)
         {
 
-            if (Input.GetKeyDown(KeyCode.Mouse1))
+            if (Input.GetMouseButtonDown(1))
             {
                 light.enabled = !light.enabled;
             }

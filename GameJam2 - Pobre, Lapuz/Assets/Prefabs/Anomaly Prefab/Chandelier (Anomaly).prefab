@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7773802459483811509}
   m_Layer: 0
   m_Name: Cylinder (2)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1439,7 +1439,7 @@ GameObject:
   - component: {fileID: 8922400655610620001}
   m_Layer: 0
   m_Name: Cylinder (5)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2862,7 +2862,7 @@ GameObject:
   - component: {fileID: 1905819210410453090}
   m_Layer: 0
   m_Name: Cylinder (3)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4285,7 +4285,7 @@ GameObject:
   - component: {fileID: 4847949218846802760}
   m_Layer: 0
   m_Name: Arch (2)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6325,7 +6325,7 @@ GameObject:
   - component: {fileID: 2908082017897889124}
   m_Layer: 0
   m_Name: Cylinder (4)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7748,7 +7748,7 @@ GameObject:
   - component: {fileID: 2409513410288074731}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9171,7 +9171,7 @@ GameObject:
   - component: {fileID: 2586640409661908334}
   m_Layer: 0
   m_Name: Arch (3)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11211,7 +11211,7 @@ GameObject:
   - component: {fileID: 9149743913064632356}
   m_Layer: 0
   m_Name: Cylinder (1)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12634,7 +12634,7 @@ GameObject:
   - component: {fileID: 1168387314476728908}
   m_Layer: 0
   m_Name: Arch
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14674,7 +14674,7 @@ GameObject:
   - component: {fileID: 5938409881986818694}
   m_Layer: 0
   m_Name: Arch (1)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16710,7 +16710,7 @@ GameObject:
   - component: {fileID: 7277382154076098600}
   m_Layer: 0
   m_Name: Chandelier (Anomaly)
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16765,6 +16765,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2300336950500814866}
     m_Modifications:
+    - target: {fileID: 4138385008155682519, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 8195996806140823192, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.18715668
@@ -16809,6 +16813,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle
       objectReference: {fileID: 0}
+    - target: {fileID: 8404261007678519495, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764816153282076847, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 9001047077727664392, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_Range
       value: 0.34
@@ -16835,6 +16847,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2300336950500814866}
     m_Modifications:
+    - target: {fileID: 4138385008155682519, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 8195996806140823192, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.7101555
@@ -16879,6 +16895,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8404261007678519495, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764816153282076847, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 9001047077727664392, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_Range
       value: 0.34
@@ -16905,6 +16929,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2300336950500814866}
     m_Modifications:
+    - target: {fileID: 4138385008155682519, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 8195996806140823192, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.041843414
@@ -16949,6 +16977,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8404261007678519495, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764816153282076847, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 9001047077727664392, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_Range
       value: 0.34
@@ -16975,6 +17011,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2300336950500814866}
     m_Modifications:
+    - target: {fileID: 4138385008155682519, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
     - target: {fileID: 8195996806140823192, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5108452
@@ -17018,6 +17058,14 @@ PrefabInstance:
     - target: {fileID: 8404261007678519495, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_Name
       value: Candle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8404261007678519495, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764816153282076847, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
+      propertyPath: m_TagString
+      value: Anomaly
       objectReference: {fileID: 0}
     - target: {fileID: 9001047077727664392, guid: 316bec47f5e8f0945b7c65eaa987d30c, type: 3}
       propertyPath: m_Range

@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 498488330308916503}
   m_Layer: 0
   m_Name: SecondHand
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1323,7 +1323,7 @@ GameObject:
   - component: {fileID: 8693788893622442341}
   m_Layer: 0
   m_Name: HourHand
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1539,7 +1539,7 @@ GameObject:
   - component: {fileID: 5994726804508397484}
   m_Layer: 0
   m_Name: MinuteHand
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1647,7 +1647,7 @@ GameObject:
   - component: {fileID: 737327884812693772}
   m_Layer: 0
   m_Name: Nail
-  m_TagString: Untagged
+  m_TagString: Anomaly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1750,6 +1750,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9146372336562227335}
+  - component: {fileID: 5182654057228084278}
   m_Layer: 0
   m_Name: Clock (1)
   m_TagString: Anomaly
@@ -1774,3 +1775,16 @@ Transform:
   - {fileID: 2070849450039712790}
   m_Father: {fileID: 3970435001741844026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5182654057228084278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5074226225074077022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066e4a72f4cf142489fdaa22ef989da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomalyID: 0

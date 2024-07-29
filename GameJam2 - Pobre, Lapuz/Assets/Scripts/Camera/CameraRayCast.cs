@@ -18,12 +18,18 @@ public class CameraRayCast : MonoBehaviour
             {
                 Debug.Log("Raycast hit");
                 Transform objectHit = hit.transform;
+                Debug.Log(objectHit.gameObject.name);
 
                 if (objectHit.CompareTag(targetTag)) // Check if the object has the specific tag
                 {
+                    Debug.Log("Hit Anomaly");
                     Anomaly hitObjectID = null;
                     if (objectHit.parent != null)
                         hitObjectID = objectHit.parent.GetComponent<Anomaly>();
+                    else if(objectHit.parent.parent != null)
+                    {
+                        hitObjectID = objectHit.parent.GetComponent<Anomaly>();
+                    }   
 
                     if (hitObjectID != null)
                     {
