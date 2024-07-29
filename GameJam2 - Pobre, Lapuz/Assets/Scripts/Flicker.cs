@@ -28,7 +28,7 @@ public class Flicker : MonoBehaviour
         isFlickering = true;
         this.gameObject.GetComponent<Light>().enabled = false;
         material.DisableKeyword("_EMISSION");
-        timeDelay = Random.Range(0.01f, 0.2f);
+        timeDelay = Random.Range(0.3f, 0.8f);
         yield return new WaitForSeconds(timeDelay);
         this.gameObject.GetComponent<Light>().enabled = true;
         material.EnableKeyword("_EMISSION");
