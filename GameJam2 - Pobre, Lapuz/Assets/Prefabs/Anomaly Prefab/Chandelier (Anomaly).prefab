@@ -16707,6 +16707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2300336950500814866}
+  - component: {fileID: 7277382154076098600}
   m_Layer: 0
   m_Name: Chandelier (Anomaly)
   m_TagString: Untagged
@@ -16743,6 +16744,19 @@ Transform:
   - {fileID: 7847872505653084509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 45, z: 195}
+--- !u!114 &7277382154076098600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5554108131500517783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066e4a72f4cf142489fdaa22ef989da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomalyID: 16
 --- !u!1001 &1507885005900514814
 PrefabInstance:
   m_ObjectHideFlags: 0

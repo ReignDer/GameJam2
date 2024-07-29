@@ -1429,6 +1429,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3389841049311872440}
+  - component: {fileID: -6419457947487066847}
   m_Layer: 0
   m_Name: Chair (Anomaly)
   m_TagString: Untagged
@@ -1456,6 +1457,19 @@ Transform:
   - {fileID: 3507803674628207551}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 74.88, z: 0}
+--- !u!114 &-6419457947487066847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6476895136091532661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066e4a72f4cf142489fdaa22ef989da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anomalyID: 15
 --- !u!1 &6540651695163921521
 GameObject:
   m_ObjectHideFlags: 0
